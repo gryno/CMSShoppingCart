@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CMSShoppingCart.Models;
 
 namespace CMSShoppingCart.Infrastructure
 {
@@ -10,7 +11,7 @@ namespace CMSShoppingCart.Infrastructure
     {
         public CMSShoppingCartContext(DbContextOptions<CMSShoppingCartContext> options) : base(options)
         {
-
         }
+        public DbSet<Page> Pages { get; set; }
     }
 }
