@@ -54,7 +54,7 @@
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     @if (item.Slug != "home")
                     {
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a class="confirmDeletion" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     }
                     @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                         @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
