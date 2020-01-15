@@ -2,7 +2,7 @@
 
 namespace CMSShoppingCart.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

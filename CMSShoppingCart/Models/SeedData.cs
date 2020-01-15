@@ -43,13 +43,6 @@ namespace CMSShoppingCart.Models
                     },
                     new Page
                     {
-                        Title = "Services",
-                        Slug = "services",
-                        Content = "services page",
-                        Sorting = 100
-                    },
-                    new Page
-                    {
                         Title = "Contact",
                         Slug = "contact-page",
                         Content = "contact page",

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMSShoppingCart.Migrations
 {
     [DbContext(typeof(CMSShoppingCartContext))]
-    [Migration("20200113071733_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200115054742_InitialCase")]
+    partial class InitialCase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
