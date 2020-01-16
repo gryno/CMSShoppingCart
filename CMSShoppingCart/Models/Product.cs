@@ -1,4 +1,5 @@
 ﻿using CMSShoppingCart.Areas.Admin.Models;
+using CMSShoppingCart.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace CMSShoppingCart.Models
         [Range(1, int.MaxValue, ErrorMessage = "You must choose a category")]
         public int CategoryId { get; set; }
         [Display(Name = "Product Image")]
+        [FileExtension]
         public string Image { get; set; }
 
         [ForeignKey("CategoryId")]
