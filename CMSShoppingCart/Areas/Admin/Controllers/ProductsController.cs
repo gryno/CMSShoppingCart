@@ -109,5 +109,18 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public async Task<IActionResult> Details(int id)
+        {
+            Product product = await context.Product.Include(x => x.Category)
+                                                   .FirstOrDefaultAsync(x => x.Id == id)
+                                                   .ConfigureAwait(false);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
     }
 }
