@@ -25,7 +25,8 @@ namespace CMSShoppingCart.Infrastructure
 
                 if (!result)
                 {
-                    return new ValidationResult("Allowed extensions are: " + string.Join(", ", extensions));
+                    //return new ValidationResult("Allowed extensions are: " + string.Join(", ", extensions));
+                    return new ValidationResult(GetErrorMessage());
 
                 }
 
