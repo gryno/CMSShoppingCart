@@ -24,9 +24,15 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
             this.webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
-            return View(await context.Product.OrderByDescending(x => x.Id).Include(x => x.Category).ToListAsync().ConfigureAwait(false));
+            int pageSize = 6;
+            var products = context.Product.OrderByDescending(x => x.Id)
+                                          .Include(x => x.Category)
+                                          .Skip((page - 1) * pageSize)
+                                          .Take(pageSize);
+
+            return View(await products.ToListAsync().ConfigureAwait(false));
         }
 
         public IActionResult Create()
