@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CMSShoppingCart.Infrastructure;
+using CMSShoppingCart.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CMSShoppingCart.Areas.Admin.Controllers
 {
@@ -18,9 +20,9 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
             this.context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await context.Product.OrderByDescending(x => x.Id).Include(x => x.Category).ToListAsync().ConfigureAwait(false));
         }
     }
 }
