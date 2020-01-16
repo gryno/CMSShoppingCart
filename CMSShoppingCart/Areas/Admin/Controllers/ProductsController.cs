@@ -36,8 +36,6 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
             ViewBag.PageRange = pageSize;
             ViewBag.TotalPages = (int)Math.Ceiling((decimal)context.Product.Count() / pageSize);
 
-
-
             return View(await products.ToListAsync().ConfigureAwait(false));
         }
 
@@ -110,5 +108,6 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
     }
 }

@@ -45,7 +45,10 @@ namespace CMSShoppingCart.Infrastructure
 
             var content = new StringBuilder();
             content.Append(" <ul class='pagination'>");
-            content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}/1'>{PageFirst}</a></li>");
+            if (PageNumber != 1)
+            {
+                content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}?page=1'>{PageFirst}</a></li>");
+            }
 
             if (PageNumber <= PageRange)
             {
@@ -56,7 +59,7 @@ namespace CMSShoppingCart.Infrastructure
                         continue;
                     }
                     var active = currentPage == PageNumber ? "active" : "";
-                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?page={currentPage}'>{currentPage}</a></li>");
                 }
             }
             else if (PageNumber > PageRange && PageNumber < PageCount - PageRange)
@@ -68,7 +71,7 @@ namespace CMSShoppingCart.Infrastructure
                         continue;
                     }
                     var active = currentPage == PageNumber ? "active" : "";
-                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?page={currentPage}'>{currentPage}</a></li>");
                 }
             }
             else
@@ -80,11 +83,14 @@ namespace CMSShoppingCart.Infrastructure
                         continue;
                     }
                     var active = currentPage == PageNumber ? "active" : "";
-                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}/{currentPage}'>{currentPage}</a></li>");
+                    content.Append($"<li class='page-item {active}'><a class='page-link'href='{PageTarget}?page={currentPage}'>{currentPage}</a></li>");
                 }
             }
 
-            content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}/{PageCount}'>{PageLast}</a></li>");
+            if (PageNumber != PageRange)
+            {
+                content.Append($"<li class='page-item'><a class='page-link' href='{PageTarget}?page={PageCount}'>{PageLast}</a></li>");
+            }
             content.Append(" </ul");
             return content.ToString();
         }
