@@ -1,4 +1,5 @@
 ﻿using CMSShoppingCart.Areas.Admin.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -18,12 +19,16 @@ namespace CMSShoppingCart.Models
         public string Description { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
+        [Display(Name = "Product Image")]
         public string Image { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
+        [NotMapped]
+        public IFormFile ImageUpload { get; set; }
     }
 
 
