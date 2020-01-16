@@ -20,6 +20,7 @@ namespace CMSShoppingCart.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
         [Display(Name = "Category")]
+        [Range(1, int.MaxValue, ErrorMessage = "You must choose a category")]
         public int CategoryId { get; set; }
         [Display(Name = "Product Image")]
         public string Image { get; set; }
