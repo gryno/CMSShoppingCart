@@ -5,15 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200115054531_InitialCase.cs" />
-    <Compile Remove="Migrations\20200115054531_InitialCase.Designer.cs" />
-    <Compile Remove="Migrations\20200115054742_InitialCase.cs" />
-    <Compile Remove="Migrations\20200115054742_InitialCase.Designer.cs" />
-    <Compile Remove="Migrations\20200116045004_SecondCreate.cs" />
-    <Compile Remove="Migrations\20200116045004_SecondCreate.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
