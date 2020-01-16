@@ -9,10 +9,10 @@ namespace CMSShoppingCart.Models
     public class Page
     {
         public int Id { get; set; }
-        [Required, MinLength(2, ErrorMessage ="Minimum length is 2 characters")]
+        [Required, MinLength(2, ErrorMessage ="Minimum length of 2 characters")]
         public string Title { get; set; }
         public string Slug { get; set; }
-        [Required, MinLength(4, ErrorMessage = "Minimum length is 4 characters")]
+        [Required, MinLength(4, ErrorMessage = "Minimum length of 4 characters")]
         public string Content { get; set; }
         public int Sorting { get; set; }
 
