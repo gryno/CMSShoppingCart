@@ -53,5 +53,35 @@ namespace CMSShoppingCart.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public async Task<IActionResult> Decrease(int id)
+        {
+
+            List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
+
+            CartItem cartItem = cart.Where(x => x.ProductId == id).FirstOrDefault();
+
+            if (cartItem.Quantity > 1)
+            {
+                cartItem.Quantity -= 1;
+
+            }
+            else
+            {
+                cart.RemoveAll(x => x.ProductId == id);
+
+            }
+
+            HttpContext.Session.SetJson("Cart", cart);
+
+            if (cart.Count == 0)
+            {
+                HttpContext.Session.Remove("Cart");
+
+            }
+
+            return RedirectToAction("Index");
+
+        }
     }
 }
