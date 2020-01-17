@@ -14,6 +14,11 @@ namespace CMSShoppingCart.Models
         public decimal Total { get { return Quantity * Price; } }
         public string Image { get; set; }
 
+        public CartItem()
+        {
+
+        }
+
         public CartItem(Product product)
         {
             this.ProductId = product.Id;

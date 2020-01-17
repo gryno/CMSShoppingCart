@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Cart</h1>
 
 @if (Model.CartItems.Count > 0)
 {
@@ -24,7 +24,7 @@
     </div>
     <div>
         @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" asp-controller="Products">Back to List</a>
     </div>
 
 }
