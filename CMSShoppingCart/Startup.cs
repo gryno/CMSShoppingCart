@@ -28,6 +28,12 @@ namespace CMSShoppingCart
             services.AddControllersWithViews();
             services.AddDbContext<CMSShoppingCartContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("CMSShoppingCartContext")));
+            services.AddMemoryCache();
+            services.AddSession(options =>
+            {
+                //options.IdleTimeout = TimeSpan.FromSeconds(2)
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +54,9 @@ namespace CMSShoppingCart
 
             app.UseRouting();
 
+            app.UseSession();
+
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -58,7 +67,7 @@ namespace CMSShoppingCart
                     defaults: new { controller = "Pages", action = "Page" }
                     //pattern: "{controller=Pages}/{action=Index}/{id?}"
                   );
-                
+
                 endpoints.MapControllerRoute(
                     name: "products",
                     pattern: "products/{categorySlug}",
