@@ -53,6 +53,13 @@ namespace CMSShoppingCart
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "pages",
+                    pattern: "{slug?}",
+                    defaults: new { controller = "Pages", action = "Page" }
+                    //pattern: "{controller=Pages}/{action=Index}/{id?}"
+                  );
+
+                endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
