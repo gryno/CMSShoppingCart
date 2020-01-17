@@ -110,5 +110,16 @@ namespace CMSShoppingCart.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Clear(int id)
+        {
+
+            List<CartItem> cart = HttpContext.Session.GetJson<List<CartItem>>("Cart");
+
+            cart.Clear();
+
+            HttpContext.Session.Remove("Cart")
+
+            return RedirectToAction("Index");
+        }
     }
 }
