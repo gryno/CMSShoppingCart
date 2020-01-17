@@ -1,5 +1,4 @@
-﻿using CMSShoppingCart.Areas.Admin.Models;
-using CMSShoppingCart.Infrastructure;
+﻿using CMSShoppingCart.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;

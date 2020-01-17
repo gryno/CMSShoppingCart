@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMSShoppingCart.Migrations
 {
     [DbContext(typeof(CMSShoppingCartContext))]
-    [Migration("20200116081831_ThirdCreate")]
-    partial class ThirdCreate
+    [Migration("20200117041106_FifthCreation")]
+    partial class FifthCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace CMSShoppingCart.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CMSShoppingCart.Areas.Admin.Models.Category", b =>
+            modelBuilder.Entity("CMSShoppingCart.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -99,12 +99,12 @@ namespace CMSShoppingCart.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("CMSShoppingCart.Models.Product", b =>
                 {
-                    b.HasOne("CMSShoppingCart.Areas.Admin.Models.Category", "Category")
+                    b.HasOne("CMSShoppingCart.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

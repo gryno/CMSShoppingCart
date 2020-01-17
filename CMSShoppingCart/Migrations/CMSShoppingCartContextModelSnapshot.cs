@@ -18,7 +18,7 @@ namespace CMSShoppingCart.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CMSShoppingCart.Areas.Admin.Models.Category", b =>
+            modelBuilder.Entity("CMSShoppingCart.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -102,7 +102,7 @@ namespace CMSShoppingCart.Migrations
 
             modelBuilder.Entity("CMSShoppingCart.Models.Product", b =>
                 {
-                    b.HasOne("CMSShoppingCart.Areas.Admin.Models.Category", "Category")
+                    b.HasOne("CMSShoppingCart.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

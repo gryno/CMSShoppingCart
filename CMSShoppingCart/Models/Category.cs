@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CMSShoppingCart.Areas.Admin.Models
+namespace CMSShoppingCart.Models
 {
     public class Category
     {
