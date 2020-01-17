@@ -2,10 +2,10 @@
 
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Products " + @ViewBag.CategoryName;
 }
 
-<h1 class="display-4">All Products</h1>
+<h1 class="display-4">@ViewBag.CategoryName</h1>
 
 <div class="row">
     @foreach (var item in Model)

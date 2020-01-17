@@ -58,6 +58,13 @@ namespace CMSShoppingCart
                     defaults: new { controller = "Pages", action = "Page" }
                     //pattern: "{controller=Pages}/{action=Index}/{id?}"
                   );
+                
+                endpoints.MapControllerRoute(
+                    name: "products",
+                    pattern: "products/{categorySlug}",
+                    defaults: new { controller = "Products", action = "ProductsByCategory" }
+                    //pattern: "{controller=Pages}/{action=Index}/{id?}"
+                  );
 
                 endpoints.MapControllerRoute(
                     name: "areas",
