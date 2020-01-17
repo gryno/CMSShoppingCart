@@ -99,14 +99,24 @@ namespace CMSShoppingCart.Areas.Admin.Controllers
             else
             {
                 context.Products.Remove(product);
-                await context.SaveChangesAsync();
+                await context.SaveChangesAsync().ConfigureAwait(false);
 
                 // Delete the image file.
-                var uploadsDir = Path.Combine(webHostEnvironment.WebRootPath, "media/products");
-                var imagePath = Path.Combine(uploadsDir, product.Image);
-                System.IO.File.Delete(imagePath);
+                if (!string.Equals(product.Image, "noimage.png"))
+                {
 
-                TempData["Success"] = "The product has been deleted!";
+                    var uploadsDir = Path.Combine(webHostEnvironment.WebRootPath, "media/products");
+                    var imagePath = Path.Combine(uploadsDir, product.Image);
+
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        System.IO.File.Delete(imagePath);
+
+
+                        TempData["Success"] = "The product has been deleted!";
+
+                    }
+                }
             }
 
             return RedirectToAction("Index");
