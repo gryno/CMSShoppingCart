@@ -43,7 +43,7 @@ namespace CMSShoppingCart.Controllers
             {
                 return RedirectToAction("Index");
             }
-            int pageSize = 6;
+            int pageSize = 2;
             var products = context.Products.OrderByDescending(x => x.Id)
                                            .Where(x => x.CategoryId == category.Id)
                                            .Skip((page - 1) * pageSize)
@@ -51,6 +51,7 @@ namespace CMSShoppingCart.Controllers
 
             ViewBag.PageNumber = page;
             ViewBag.PageRange = pageSize;
+            ViewBag.CategorySlug = category.Slug;
             ViewBag.TotalPages = (int)Math.Ceiling((decimal)context.Products.Where(x => x.CategoryId == category.Id).Count() / pageSize);
             ViewBag.CategoryName = category.Name;
 
