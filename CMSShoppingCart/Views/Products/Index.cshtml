@@ -24,7 +24,7 @@
                 @item.Price.ToString("C2")
             </p>
             <p>
-                <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id" class="btn btn-primary">Add to Cart</a>
+                <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.Id" data-id="@item.Id" class="addToCart btn btn-primary">Add to Cart</a>
                 @*<a href="#" class="btn btn-primary">Add to Cart</a>*@
             </p>
         </div>
@@ -35,3 +35,17 @@
     <Pagination page-count="@ViewBag.TotalPages" page-target="/Products" page-number="@ViewBag.PageNumber" page-range="@ViewBag.PageRange"></Pagination>
 </div>
 
+@section Scripts {
+    <script>
+        $(function () {
+            $("a.addToCart").click(function (e) {
+                e.preventDefault();
+                let id = $(this).data("id");
+
+                $.get("/cart/add/" + id, {}, function (data) {
+                    $("div.smallcart").html(data);
+                });
+            });
+        });
+    </script>
+}
