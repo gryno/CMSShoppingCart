@@ -117,7 +117,7 @@ namespace CMSShoppingCart.Controllers
 
             cart.Clear();
 
-            HttpContext.Session.Remove("Cart")
+            HttpContext.Session.Remove("Cart");
 
             return RedirectToAction("Index");
         }
