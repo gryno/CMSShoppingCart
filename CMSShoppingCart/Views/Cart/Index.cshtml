@@ -53,7 +53,7 @@
                 @Html.DisplayNameFor(model => model.GrandTotal)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.GrandTotal)
+                @Html.Raw(Model.GrandTotal.ToString("C2"))
             </dd>
         </dl>
     </div>
@@ -67,3 +67,5 @@ else
 {
     <h3 class="display-4 text-center">Your cart is empty.</h3>
 }
+
+<partial name="~/Views/Cart/_PayPalPartial.cshtml" for="CartItems" />
